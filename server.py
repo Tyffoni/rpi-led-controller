@@ -102,13 +102,6 @@ def random_message():
 
 @app.route("/api/turn-off", methods=["GET"])
 def turn_off():
-    # global proc
-    # global sign_message
-    # success = False
-    # if proc != None:
-    #     proc.kill()
-    #     sign_message = None
-    #     success = True
 
     turnOff()
     return jsonify({
