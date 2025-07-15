@@ -21,6 +21,7 @@ def turnOff():
         proc.kill()
         sign_message = None
         success = True
+    return success
 
 app = Flask(__name__)
 parser = argparse.ArgumentParser()
@@ -103,9 +104,8 @@ def random_message():
 @app.route("/api/turn-off", methods=["GET"])
 def turn_off():
 
-    turnOff()
     return jsonify({
-        "success": success
+        "success": turnOff()
     })
 
 
