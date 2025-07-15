@@ -12,6 +12,17 @@ from sign_message import SignMessage
 
 proc = None
 sign_message = None
+
+def turnOff():
+    global proc
+    global sign_message
+    success = False
+    if proc != None:
+        proc.kill()
+        sign_message = None
+        success = True
+    return success
+
 app = Flask(__name__)
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -92,15 +103,9 @@ def random_message():
 
 @app.route("/api/turn-off", methods=["GET"])
 def turn_off():
-    global proc
-    global sign_message
-    success = False
-    if proc != None:
-        proc.kill()
-        sign_message = None
-        success = True
+
     return jsonify({
-        "success": success
+        "success": turnOff()
     })
 
 
