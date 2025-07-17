@@ -13,4 +13,3 @@ COPY *.py ./
 EXPOSE 7000
 
 ENTRYPOINT ["python", "server.py", "--development", "--port=7000"]
-

@@ -36,7 +36,6 @@ def expire(exp):
     print("untied lmao", flush=True)
     turnOff()
 
-
 app = Flask(__name__)
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -117,9 +116,8 @@ def random_message():
 
 @app.route("/api/turn-off", methods=["GET"])
 def turn_off():
-    turnOff()
     return jsonify({
-        "success": True
+        "success": turnOff()
     })
 
 
